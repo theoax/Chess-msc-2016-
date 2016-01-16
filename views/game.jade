@@ -1,0 +1,245 @@
+extends layout
+
+block content
+
+  #banner.jumbotron
+    .container
+      .containerleft <a class="logo" href="/"><img src="/img/logo.png" alt="logo"/></a><a href="/learn" >Εκμάθηση</a> <a href="/train" >Εκπαίδευση</a> <a href="/" >Παιχνίδι</a>
+      .containerright  <ul class="teo-navbar-right"> <li class="dropdown open" style="margin-right:15px"> <img id="prof" class="prof" alt="0" src="/img/prof.png"> <a class="dropdown-toggle" style="color:white!important" href="#" > sofo koutoulas <b class="caret"></b> </a> 
+                      <ul id="streaker" class="nav navbar-nav navbar-right" title="" > <li> <img id="streak" class="streak" alt="0" src="/img/cup.png"> </li> <li> <div id="current-streak" class="current-streak"> &nbsp;&nbsp;3 </div> </li> </ul><ul class="dropdown-menu"> <li> <a href="/invitation"> Προσκλήσεις </a> </li> <li> <a href="/dashboard">Πίνακας ενημερώσεων</a> </li> <li> <a href="/profile">Προφίλ</a> </li> <li> <a href="/settings">Ρυθμίσεις </a> </li> </ul> </li>  </ul>
+
+
+
+
+
+     
+
+  
+  
+  .container
+
+    #messages
+    #game
+      .esot
+        #title-bar
+
+          <img class="kg"  src="/img/kg.jpg" alt="kg" >
+          span &nbsp;&nbsp;&nbsp;Game:&nbsp;
+          strong #{gameID}
+        .butdivpa
+            button#forfeit.btn.btn-sm.btn-primary Παραίτηση από το παιχνίδι  
+
+        #you.player-info
+          p Εγώ
+          strong ...
+          span.status.pull-right
+          ul.captured-pieces.list-inline
+
+        #opponent.player-info
+          p Αντίπαλος
+          strong ...
+          span.status.pull-right
+          ul.captured-pieces.list-inline
+
+
+
+
+
+
+      .esot2      
+        table#board
+          tr
+            td.top-left-corner
+            td.top-edge
+            td.top-edge
+            td.top-edge
+            td.top-edge
+            td.top-edge
+            td.top-edge
+            td.top-edge
+            td.top-edge
+            td.top-right-corner
+          tr
+            td.left-edge
+            td.square
+            td.square
+            td.square
+            td.square
+            td.square
+            td.square
+            td.square
+            td.square
+            td.right-edge
+          tr
+            td.left-edge
+            td.square
+            td.square
+            td.square
+            td.square
+            td.square
+            td.square
+            td.square
+            td.square
+            td.right-edge
+          tr
+            td.left-edge
+            td.square
+            td.square
+            td.square
+            td.square
+            td.square
+            td.square
+            td.square
+            td.square
+            td.right-edge
+          tr
+            td.left-edge
+            td.square
+            td.square
+            td.square
+            td.square
+            td.square
+            td.square
+            td.square
+            td.square
+            td.right-edge
+          tr
+            td.left-edge
+            td.square
+            td.square
+            td.square
+            td.square
+            td.square
+            td.square
+            td.square
+            td.square
+            td.right-edge
+          tr
+            td.left-edge
+            td.square
+            td.square
+            td.square
+            td.square
+            td.square
+            td.square
+            td.square
+            td.square
+            td.right-edge
+          tr
+            td.left-edge
+            td.square
+            td.square
+            td.square
+            td.square
+            td.square
+            td.square
+            td.square
+            td.square
+            td.right-edge
+          tr
+            td.left-edge
+            td.square
+            td.square
+            td.square
+            td.square
+            td.square
+            td.square
+            td.square
+            td.square
+            td.right-edge
+          tr
+            td.bottom-left-corner
+            td.bottom-edge
+            td.bottom-edge
+            td.bottom-edge
+            td.bottom-edge
+            td.bottom-edge
+            td.bottom-edge
+            td.bottom-edge
+            td.bottom-edge
+            td.bottom-right-corner
+
+
+
+
+
+    #game-over.modal.fade(role="dialog")
+      .modal-dialog
+        .modal-content
+          .modal-body.text-center
+            h2.alert
+          .modal-footer
+            a.btn.btn-primary(href="/") Continue
+
+    #pawn-promotion.modal.fade(role="dialog")
+      .modal-dialog
+        .modal-content
+          .modal-body.text-center
+            form
+              h3 Promote Pawn
+              .btn-group(data-toggle="buttons")
+                label.btn.btn-default.knight
+                  input(type="radio", name="promotion", value="N")
+
+                label.btn.btn-default.bishop
+                  input(type="radio", name="promotion", value="B")
+
+                label.btn.btn-default.rook
+                  input(type="radio", name="promotion", value="R")
+
+                label.btn.btn-default.queen.active
+                  input(type="radio", name="promotion", value="Q", checked="checked")
+          .modal-footer
+            button.btn.btn-primary Promote
+
+    #forfeit-game.modal.fade(role="dialog")
+      .modal-dialog
+        .modal-content
+          .modal-body.text-center
+            h2 Forfeit Game?
+          .modal-footer
+            button#cancel-forfeit.btn.btn-default Cancel
+            button#confirm-forfeit.btn.btn-primary Forfeit
+
+    #game2
+         .col-esot
+          .col-esot2 <p class="topchat"> Chat    <img class="prof-fot"  src="/img/prof3.png" alt="prof1" />  <img class="prof-fot"  src="/img/prof.png" alt="prof1" >  </p>
+          .col-esot3   
+            .col-esot3-intern 
+               .col-esot3-intern1  <img class="prof-fot"  src="/img/prof.png" alt="prof1" />
+               .col-esot3-intern2
+                      .col-esot3-intern3   <p>Είσαι έτοιμη να ξεκινήσουμε την παρτίδα? &nbsp; &nbsp; <img class="clock-fot" style="width:auto; height:auto;"  src="/img/clock.jpg" alt="clock" > 6:15</p>
+            .col-esot3-intern  
+               .col-esot3-intern1-right  <img class="prof-fot"  src="/img/prof3.png" alt="prof1" />
+               .col-esot3-intern2-right
+                      .col-esot3-intern3-right   <p>Την περίμενα καιρό αυτή τη στιγμή. Από την τελευταία φορά που παίξαμε και έχασα &nbsp; &nbsp; <img class="clock-fot" style="width:auto; height:auto;"  src="/img/clock.jpg" alt="clock" > 6:17</p>  
+            .col-esot3-intern 
+               .col-esot3-intern1  <img class="prof-fot"  src="/img/prof.png" alt="prof1" />
+               .col-esot3-intern2
+                      .col-esot3-intern3   <p>Αυτή τη φορά μπορεί να μην έχω τόση τύχη. &nbsp; &nbsp; <img class="clock-fot" style="width:auto; height:auto;"  src="/img/clock.jpg" alt="clock" > 6:19 </p>
+  
+
+            .col-esot3-intern-chat 
+
+                    H5 Ξεκινάμε .|
+                    button.btn.btn-primary(type="a") Αποστολή 
+                    <img class="emoji"  src="/img/emoji.jpg" alt="emoji" />
+  .bottom-menu-tee
+         .container 
+           .row 
+              .col-md-8 <span class="navbar-brand"> <a href="#"> <img src="/img/logo.png" alt="Minilogo" width="30" /> </a> </span> <ul class="bottom-links"> <li> <a href="#">Η εταιρία</a> </li> <li> <a href="#">Συζήτηση</a> </li> <li> <a href="#">Συχνές Ερωτήσεις</a> </li> <li> <a href="#">Επικοινωνία</a> </li> <li> <a href="#">Ιδιωτικότητα</a> </li> </ul> </div> <div class="col-md-4"> <ul class="bottom-icons" style="float:right"> <li class="copyright"> © 2015 Web Chess Msc. </li> <li>   </li> </ul> 
+
+  script(src="/js/jquery.min.js")
+  script(src="/js/bootstrap.min.js")
+  script(src="/socket.io/socket.io.js")
+  script(src="/js/client.js")
+  script(src="/js/fastclick.js")
+  script.
+    $(document).ready(function() {
+      FastClick.attach(document.body);
+      window.Client({
+        gameID      : "#{gameID}",
+        playerColor : "#{playerColor}",
+        playerName  : "#{playerName}"
+      });
+    });

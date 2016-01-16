@@ -1,0 +1,77 @@
+extends layout
+
+block content
+
+  #banner.jumbotron
+    .container
+      .containerleft <a class="logo" href="/"><img src="/img/logo.png" alt="logo"/></a><a href="/learn" >Εκμάθηση</a> <a href="/train" >Εκπαίδευση</a> <a href="/" >Παιχνίδι</a>
+      .containerright  <ul class="teo-navbar-right"> <li class="dropdown open" style="margin-right:15px"> <img id="prof" class="prof" alt="0" src="/img/prof.png"> <a class="dropdown-toggle" style="color:white!important" href="#" > sofo koutoulas <b class="caret"></b> </a> 
+                      <ul id="streaker" class="nav navbar-nav navbar-right" title="" > <li> <img id="streak" class="streak" alt="0" src="/img/cup.png"> </li> <li> <div id="current-streak" class="current-streak"> &nbsp;&nbsp;3 </div> </li> </ul><ul class="dropdown-menu"> <li> <a href="/invitation"> Προσκλήσεις </a> </li> <li> <a href="/dashboard">Πίνακας ενημερώσεων</a> </li> <li> <a href="/profile">Προφίλ</a> </li> <li> <a href="/settings">Ρυθμίσεις </a> </li> </ul> </li>  </ul>
+
+  .container
+ 
+    .row
+      .col-sm-6
+
+        h2 Ξεκινήστε μια νέα παρτίδα
+        form#startForm(action="/start", method="POST", role="form")
+          .form-group
+            label Παίξε ως
+            div
+              .btn-group(data-toggle="buttons")
+                label.btn.btn-default.active
+                  input(type="radio", name="player-color", value="white", checked="checked")
+                  | Λευκά 
+                label.btn.btn-default
+                  input(type="radio", name="player-color", value="black")
+                  | Μαύρα
+          .form-group
+            label(for="playerName") Όνομα
+            input#playerName.form-control(type="text", name="player-name", placeholder="Παίκτης 1")
+          button.btn.btn-primary(type="submit") Ξεκινήστε παρτίδα   	
+          .mes             
+                         h2 Μπες σε μια υπάρχουσα παρτίδα
+        form#joinForm(action="/join", method="POST", role="form")
+          .form-group
+            label(for="gameID") Αναγνωριστικό παρτίδας
+            input#gameID.form-control(type="text", name="game-id")
+          .form-group
+            label(for="playerName") Όνομα
+            input#playerName.form-control(type="text", name="player-name", placeholder="Παίκτης 2")
+          button.btn.btn-primary(type="submit") Λάβε μέρος σε μια παρτίδα
+      .col-sm-6
+         .col-esot
+          .col-esot2 <p class="topchat"> Chat  <img class="prof-fot"  src="/img/prof1.png" alt="prof1" />  <img class="prof-fot"  src="/img/prof3.png" alt="prof1" />  <img class="prof-fot"  src="/img/prof4.png" alt="prof1" />  <img class="prof-fot"  src="/img/prof.png" alt="prof1" />  </p>
+          .col-esot3   
+            .col-esot3-intern 
+               .col-esot3-intern1  <img class="prof-fot"  src="/img/prof.png" alt="prof1" />
+               .col-esot3-intern2
+                      .col-esot3-intern3   <p>Καλημέρα σας παιδιά, είδε κανείς τον χθεσινό αγώνα σκάκι στο Eurosport? &nbsp; &nbsp; <img class="clock-fot" style="width:auto; height:auto;"  src="/img/clock.jpg" alt="clock" > 8:15</p>
+            .col-esot3-intern  
+               .col-esot3-intern1-right  <img class="prof-fot"  src="/img/prof3.png" alt="prof1" />
+               .col-esot3-intern2-right
+                      .col-esot3-intern3-right   <p>Καλημέρα, εγώ τον είδα, πραγματικά συναρπαστικός. &nbsp; &nbsp; <img class="clock-fot" style="width:auto; height:auto;"  src="/img/clock.jpg" alt="clock" > 8:17</p>  
+            .col-esot3-intern 
+               .col-esot3-intern1  <img class="prof-fot"  src="/img/prof.png" alt="prof1" />
+               .col-esot3-intern2
+                      .col-esot3-intern3   <p>Μήπως μπόρεσες να δεις και το τέλος? Πρέπει να τελείωσε αργά, δεν άντεξα να μείνω τόσο πολύ. &nbsp; &nbsp; <img class="clock-fot" style="width:auto; height:auto;"  src="/img/clock.jpg" alt="clock" > 8:19 </p>
+            .col-esot3-intern  
+               .col-esot3-intern1-right  <img class="prof-fot"  src="/img/prof3.png" alt="prof1" />
+               .col-esot3-intern2-right
+                      .col-esot3-intern3-right   <p>Νικητής βγήκε ο Antonof τελικά χρησιμοποιώντας μία πολύ έξυπνη στρατηγική.  &nbsp; &nbsp; <img class="clock-fot" style="width:auto; height:auto;"  src="/img/clock.jpg" alt="clock" > 8:20 </p>  
+            .col-esot3-intern  
+               .col-esot3-intern1-right  <img class="prof-fot"  src="/img/prof1.png" alt="prof1" />
+               .col-esot3-intern2-right
+                      .col-esot3-intern3-right   <p>Σε ευχαριστώ, θα ψάξω να βρω στο Youtube τη συνέχεια από το σημείο που το σταμάτησα. Καλή συνέχεια. &nbsp; &nbsp; <img class="clock-fot" style="width:auto; height:auto;"  src="/img/clock.jpg" alt="clock" /> 8:25</p> 
+            .col-esot3-intern-chat 
+
+                    H5 @Jeremy καλή|
+                    button.btn.btn-primary(type="a") Αποστολή 
+                    <img class="emoji"  src="/img/emoji.jpg" alt="emoji" />
+
+  .bottom-menu-tee
+         .container 
+           .row 
+              .col-md-8 <span class="navbar-brand"> <a href="#"> <img src="/img/logo.png" alt="Minilogo" width="30"> </a> </span> <ul class="bottom-links"> <li> <a href="#">Η εταιρία</a> </li> <li> <a href="#">Συζήτηση</a> </li> <li> <a href="#">Συχνές Ερωτήσεις</a> </li> <li> <a href="#">Επικοινωνία</a> </li> <li> <a href="#">Ιδιωτικότητα</a> </li> </ul> </div> <div class="col-md-4"> <ul class="bottom-icons" style="float:right"> <li class="copyright"> © 2015 Web Chess Msc. </li> <li>   </li> </ul> 
+  script(src="/js/jquery.min.js")
+  script(src="/js/bootstrap.min.js")
